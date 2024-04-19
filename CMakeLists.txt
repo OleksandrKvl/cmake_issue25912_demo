@@ -5,6 +5,10 @@ project(cmake_issue25912_demo
     LANGUAGES CXX
 )
 
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED YES)
+set(CMAKE_CXX_EXTENSIONS NO)
+
 # generator --------------------------------------------------------------------
 add_executable(schema_compiler)
 target_sources(schema_compiler

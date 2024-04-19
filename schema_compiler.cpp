@@ -4,13 +4,14 @@
 
 int main(int argc, char** argv)
 {
-    if(argc != 2)
+    if(argc != 3)
     {
         std::cerr << "Wrong number of arguments\n";
         return 1;
     }
 
     const auto path = argv[1];
+    const auto anchor_path = argv[2];
     std::ifstream file(path);
     if(!file.is_open())
     {
@@ -29,6 +30,7 @@ int main(int argc, char** argv)
             return 1;
         }
 
+        output_file << "#include \"" << anchor_path << '"';
         output_file.close();
     }
 

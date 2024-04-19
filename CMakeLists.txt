@@ -27,11 +27,12 @@ set(anchor_file_path "${CMAKE_BINARY_DIR}/${anchor_file_name}.anchor")
 add_custom_command(
     VERBATIM
     COMMAND
-        "$<TARGET_FILE:schema_compiler>" "${schema_file}"
+        "$<TARGET_FILE:schema_compiler>" "${schema_file}" "${anchor_file_path}"
     DEPENDS
         "${schema_file}" schema_compiler
     COMMENT
         "Compiling schema: ${schema_file}"
+    OUTPUT ${get_file_names_res}
 
     # We don't know any output file name because it depends on the content
     # of the schema so we generate a fake anchor file to depend on it in
